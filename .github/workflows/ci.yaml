@@ -4,8 +4,20 @@ name: .NET CI
 on: [push]
 
 jobs:
-  helloworld:
+  build:
     runs-on: ubuntu-latest
+
     steps:
-        - run: echo "Hello, world!"
-  
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v5
+        with:
+          dotnet-version: 10.0.x
+
+      - name: Restore dependencies
+        run: dotnet restore CSharpTesting.slnx
+
+      - name: Build Solution
+        run: dotnet build CSharpTesting.slnx --configuration Release --no-restore
