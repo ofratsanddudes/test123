@@ -43,5 +43,5 @@ jobs:
       - name: Test Bowling
         run: dotnet test Bowling.Tests/Bowling.Tests.csproj --configuration Release --no-restore --verbosity normal
 
-      - name: Test ConnectFour
+      - name: Test ConnectFour 
         run: dotnet test ConnectFour.Tests/ConnectFour.Tests.csproj --configuration Release --no-restore --verbosity normal
